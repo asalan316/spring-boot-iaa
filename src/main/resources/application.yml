@@ -1,0 +1,14 @@
+# Keycloak connection url, realm
+keycloak:
+  auth-server-url: http://127.0.0.1:9990/auth
+  realm: spring-boot-iaa
+  public-client: true
+  resource: spring-boot-iaa
+
+  #security rules - only makhan rule have access to employees resource
+  security-constraints:
+    - authRoles:
+        - external-persons
+      securityCollections:
+        - patterns:
+            - /employee/*

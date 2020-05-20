@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food Menu Portal</title>
+    <style>
+        #navbar {
+          overflow: hidden;
+          background-color: #333;
+        }
+
+        #navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+        }
+        .avatar {
+            display: flex;
+            justify-content: flex-end;
+       }
+    </style>
+</head>
+<body>
+<nav id="navbar">
+    <a href="/">Home</a>
+    <a href="/">Food Offers</a>
+    <div class="avatar">
+        <a th:if="${loginStatus}" href="/logout">Welcome, MAKHAN (logout)</a>
+    </div>
+</nav>
+<h2>
+    List of food available for user MAKHAN
+</h2>
+<ul>
+    <li th:each="offer : ${employeeOffers}" th:text="${offer}"></li>
+</ul>
+</body>
+</html>
